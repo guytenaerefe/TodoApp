@@ -1,5 +1,7 @@
 ﻿namespace TodoApp.Models
 {
+    using System;
+
     /// <summary>
     /// The Todo Item.
     /// </summary>
@@ -19,6 +21,8 @@
         /// Content of the Todo.
         /// </summary>
         public string Content { get; set; }
+
+        public DateTime deletedAt { get; set; }
 
         /// <summary>
         /// Category Id of the Todo.
