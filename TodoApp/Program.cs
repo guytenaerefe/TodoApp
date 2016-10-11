@@ -1,8 +1,9 @@
 ﻿namespace TodoApp
 {
-    using Models;
     using System;
     using System.Linq;
+
+    using Models;
 
     /// <summary>
     /// Todo Application.
