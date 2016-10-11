@@ -6,14 +6,13 @@
     using Models;
 
     /// <summary>
-    /// Todo Application.
+    /// To do Application.
     /// </summary>
     public class Program
     {
         /// <summary>
         /// Run the main program.
         /// </summary>
-        /// <param name="args"></param>
         public static void Main()
         {
             Console.WriteLine("Make a choice:");
@@ -43,13 +42,17 @@
             }
         }
 
+        /// <summary>
+        /// Exit the Application with supplied exit-code.
+        /// </summary>
+        /// <param name="code">Exit code</param>
         private static void Exit(int code)
         {
             Environment.Exit(code);
         }
 
         /// <summary>
-        /// Search the Todos.
+        /// Search the To dos.
         /// </summary>
         private static void Search()
         {
@@ -60,7 +63,7 @@
                 var todos = db.Todo.Where(t => t.Title.Contains(input) || t.Content.Contains(input));
                 if (todos.Count() > 0)
                 {
-                    foreach(Todo todo in todos)
+                    foreach (Todo todo in todos)
                     {
                         Console.WriteLine("{0} : {1}", todo.Title, todo.Content);
                         Console.WriteLine();
@@ -72,28 +75,31 @@
                     Console.WriteLine();
                 }
             }
+            
             Main();
         }
 
         /// <summary>
-        /// List the Todos.
+        /// List the To dos.
         /// </summary>
         private static void List()
         {
             using (var db = new TodoContext())
             {
                 Console.WriteLine("All todos in database:");
-                if(db.Todo.Count() > 0)
+                if (db.Todo.Count() > 0)
                 {
                     foreach (var todo in db.Todo)
                     {
                         Console.WriteLine(" - {0}", todo.Title);
                     }
-                } else
+                }
+                else
                 {
                     Console.WriteLine("There are no Todo's");
                 }
             }
+
             Main();
         }
 
@@ -123,7 +129,6 @@
                     var count = db.SaveChanges();
                     Console.WriteLine("{0} records saved to database", count);
                     Console.WriteLine();
-
                 }
 
                 List();

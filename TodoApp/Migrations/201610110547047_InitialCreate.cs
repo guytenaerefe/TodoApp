@@ -5,6 +5,9 @@ namespace ConsoleApplication1.Migrations
     
     public partial class InitialCreate : DbMigration
     {
+        /// <summary>
+        /// Migrate the database up.
+        /// </summary>
         public override void Up()
         {
             CreateTable(
@@ -28,15 +31,17 @@ namespace ConsoleApplication1.Migrations
                 .PrimaryKey(t => t.TodoId)
                 .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
                 .Index(t => t.CategoryId);
-            
         }
         
+        /// <summary>
+        /// Roll the database back.
+        /// </summary>
         public override void Down()
         {
-            DropForeignKey("dbo.Todoes", "CategoryId", "dbo.Categories");
-            DropIndex("dbo.Todoes", new[] { "CategoryId" });
-            DropTable("dbo.Todoes");
-            DropTable("dbo.Categories");
+            this.DropForeignKey("dbo.Todoes", "CategoryId", "dbo.Categories");
+            this.DropIndex("dbo.Todoes", new[] { "CategoryId" });
+            this.DropTable("dbo.Todoes");
+            this.DropTable("dbo.Categories");
         }
     }
 }

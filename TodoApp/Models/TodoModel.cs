@@ -3,34 +3,37 @@
     using System;
 
     /// <summary>
-    /// The Todo Item.
+    /// The To do Item.
     /// </summary>
     public class Todo
     {
         /// <summary>
-        /// Auto Increment Id.
+        /// Gets or sets Auto Increment Id.
         /// </summary>
         public int TodoId { get; set; }
 
         /// <summary>
-        /// Title of the Todo.
+        /// Gets or sets Title of the To do.
         /// </summary>
         public string Title { get; set; }
 
         /// <summary>
-        /// Content of the Todo.
+        /// Gets or sets Content of the To do.
         /// </summary>
         public string Content { get; set; }
 
-        public DateTime deletedAt { get; set; }
+        /// <summary>
+        /// Gets or sets the DeletedAt Date time.
+        /// </summary>
+        public DateTime DeletedAt { get; set; }
 
         /// <summary>
-        /// Category Id of the Todo.
+        /// Gets or sets Category Id of the To do.
         /// </summary>
         public int CategoryId { get; set; }
 
         /// <summary>
-        /// Category this Todo Belongs to, based on the Id.
+        /// Gets or sets Category this To do Belongs to, based on the Id.
         /// </summary>
         public Category Category { get; set; }
     }

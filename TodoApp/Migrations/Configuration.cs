@@ -6,8 +6,8 @@ namespace ConsoleApplication1.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "TodoApp.Models.TodoContext";
+            this.AutomaticMigrationsEnabled = false;
+            this.ContextKey = "TodoApp.Models.TodoContext";
         }
 
         protected override void Seed(TodoApp.Models.TodoContext context)
@@ -23,7 +23,6 @@ namespace ConsoleApplication1.Migrations
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
             //    );
-            //
         }
     }
 }
