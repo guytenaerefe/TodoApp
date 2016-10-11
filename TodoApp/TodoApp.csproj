@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201610110547047_InitialCreate.Designer.cs">
       <DependentUpon>201610110547047_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610112049056_AddDeletedAtDateTimeField.cs" />
+    <Compile Include="Migrations\201610112049056_AddDeletedAtDateTimeField.Designer.cs">
+      <DependentUpon>201610112049056_AddDeletedAtDateTimeField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\TodoContext.cs" />
@@ -70,6 +74,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610110547047_InitialCreate.resx">
       <DependentUpon>201610110547047_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610112049056_AddDeletedAtDateTimeField.resx">
+      <DependentUpon>201610112049056_AddDeletedAtDateTimeField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
