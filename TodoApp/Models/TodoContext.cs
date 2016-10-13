@@ -7,6 +7,17 @@
     /// </summary>
     public class TodoContext : DbContext
     {
+        private static TodoContext instance;
+
+        public static TodoContext CreateInstance()
+        {
+            if (instance == null)
+            {
+                instance = new TodoContext();
+            }
+            return instance;
+        } 
+
         /// <summary>
         /// Gets or sets the Category database set.
         /// </summary>

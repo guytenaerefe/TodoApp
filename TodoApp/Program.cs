@@ -2,19 +2,23 @@
 {
     using System;
     using System.Linq;
-
+    using TodoApp.Controllers;
     using Models;
+    using System.Collections.Generic;
 
     /// <summary>
     /// To do Application.
     /// </summary>
     public class Program
     {
+        private static TodoController controller;
+
         /// <summary>
         /// Run the main program.
         /// </summary>
         public static void Main()
         {
+            controller = TodoController.CreateInstance();
             Console.WriteLine("Make a choice:");
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("(1) List all Todos");
@@ -23,6 +27,7 @@
             Console.WriteLine("(4) Mark Todo as done");
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("(X) Exit ");
+            Console.WriteLine();
             var key = Console.ReadKey();
             switch (key.KeyChar.ToString().ToUpper())
             {
@@ -58,9 +63,9 @@
         {
             Console.WriteLine("Search query:");
             var input = Console.ReadLine();
-            using (var db = new TodoContext()) 
-            {
-                var todos = db.Todo.Where(t => t.Title.Contains(input) || t.Content.Contains(input));
+            //using (var db = new TodoContext()) 
+            //{
+                var todos = controller.SearchTodos(input);
                 if (todos.Count() > 0)
                 {
                     foreach (Todo todo in todos)
@@ -74,7 +79,7 @@
                     Console.WriteLine("No todos found containing the query {0}", input);
                     Console.WriteLine();
                 }
-            }
+            //}
             
             Main();
         }
